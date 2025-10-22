@@ -20,14 +20,15 @@ echo ""
 
 # Criar volumes externos
 echo "Criando volumes externos..."
-docker volume create npm_data 2>/dev/null && echo "✓ Volume npm_data criado" || echo "⚠ Volume npm_data já existe"
-docker volume create npm_letsencrypt 2>/dev/null && echo "✓ Volume npm_letsencrypt criado" || echo "⚠ Volume npm_letsencrypt já existe"
-docker volume create npm_db 2>/dev/null && echo "✓ Volume npm_db criado" || echo "⚠ Volume npm_db já existe"
+docker volume create io_proxy_data 2>/dev/null && echo "✓ Volume io_proxy_data criado" || echo "⚠ Volume io_proxy_data já existe"
+docker volume create io_proxy_letsencrypt 2>/dev/null && echo "✓ Volume io_proxy_letsencrypt criado" || echo "⚠ Volume io_proxy_letsencrypt já existe"
+docker volume create io_proxy_db 2>/dev/null && echo "✓ Volume io_proxy_db criado" || echo "⚠ Volume io_proxy_db já existe"
+docker volume create --driver local --opt type=none --opt device=$(pwd)/backup --opt o=bind io_proxy_backup 2>/dev/null && echo "✓ Volume io_proxy_backup criado" || echo "⚠ Volume io_proxy_backup já existe"
 echo ""
 
 # Criar rede externa
-echo "Criando rede externa 'io'..."
-docker network create io 2>/dev/null && echo "✓ Rede 'io' criada" || echo "⚠ Rede 'io' já existe"
+echo "Criando rede externa 'proxy'..."
+docker network create proxy 2>/dev/null && echo "✓ Rede 'proxy' criada" || echo "⚠ Rede 'proxy' já existe"
 echo ""
 
 # Criar arquivo .env se não existir
@@ -52,7 +53,7 @@ echo "1. Edite o arquivo .env e configure suas senhas:"
 echo "   nano .env"
 echo ""
 echo "2. Inicie os serviços:"
-echo "   docker compose up -d"
+echo "   docker compose up --force-recreate --build --remove-orphans --wait"
 echo ""
 echo "3. Acesse a interface web:"
 echo "   http://seu-servidor:81"

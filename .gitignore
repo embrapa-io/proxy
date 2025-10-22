@@ -2,10 +2,7 @@
 .env
 
 # Backup files
-backup/*.tar.gz
-backup/*.sql
-
-# Keep backup directory structure
+backup/*
 !backup/.gitkeep
 
 # Docker volumes
