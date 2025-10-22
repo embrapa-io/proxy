@@ -33,8 +33,8 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME:-npm}
-      MYSQL_USER: ${DB_USER:-npm}
+      MYSQL_DATABASE: proxy
+      MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - data_db:/var/lib/mysql
