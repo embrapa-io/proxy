@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Backup files
+backup/*.tar.gz
+backup/*.sql
+
+# Keep backup directory structure
+!backup/.gitkeep
+
+# Docker volumes
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
