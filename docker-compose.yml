@@ -65,9 +65,9 @@ services:
       done
       "
     volumes:
-      - proxy_data:/data:ro
-      - proxy_letsencrypt:/letsencrypt:ro
-      - proxy_db:/db:ro
+      - data_proxy:/data:ro
+      - data_letsencrypt:/letsencrypt:ro
+      - data_db:/db:ro
       - data_backup:/backup
     depends_on:
       db:
