@@ -94,6 +94,9 @@ volumes:
     name: ${DATA_BACKUP}
     external: true
 
+# Execute:
+# docker network create --driver=bridge --subnet=172.30.130.0/24 --gateway=172.30.130.1 proxy
+
 networks:
   io:
     name: ${COMPOSE_PROJECT_NAME}
